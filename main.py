@@ -524,7 +524,7 @@ def decode_readme(data: str):
 
 def generate_new_readme(stats: str, readme: str):
     '''Generate a new Readme.md'''
-    stats_in_readme = f"{START_COMMENT}\n{stats}\n{END_COMMENT}"
+    stats_in_readme = f"{START_COMMENT}\n\n {stats} \n\n{END_COMMENT}"
     return re.sub(listReg, stats_in_readme, readme)
 
 
