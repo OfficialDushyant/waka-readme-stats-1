@@ -5,9 +5,9 @@
 ![Project Preview](https://user-images.githubusercontent.com/25841814/79395484-5081ae80-7fac-11ea-9e27-ac91472e31dd.png)
 
 <p align="center">
-  
+
   ![Project Preview](https://user-images.githubusercontent.com/15426564/88030180-8e1c4780-cb58-11ea-8a8b-b3576dd73652.png)
-  
+
   <h3 align="center">📌✨Awesome Readme Stats</h3>
 </p>
 
@@ -125,6 +125,8 @@ jobs:
 
 `SHOW_UPDATED_DATE`        flag can be set to `True` to show updated date in end of paragraph
 
+`UPDATED_DATE_FORMAT`        flag can be set to put updated date into a format, default is `"%d/%m/%Y %H:%M:%S"`
+
 `SHOW_LINES_OF_CODE`       flag can be set to `True` to show the Lines of code writen till date
 
 ![Lines of code](https://img.shields.io/badge/From%20Hello%20World%20I've%20written-1.3%20million%20Lines%20of%20code-blue)
@@ -238,6 +240,13 @@ CSS          2 repos        █░░░░░░░░░░░░░░░░�
 `SHOW_LOC_CHART`  flag can be set to `False` to hide the Lines of code written in different quarters of different year
 
 `IGNORED_REPOS`  flag can be set to `"waka-readme-stats, my-first-repo"` (just an example) to ignore some repos you don’t want to be counted
+
+`SYMBOL_VERSION` flag can be set symbol for progress bar (default: `1`)
+| Version | Done block | Empty block |
+|-------- | ---------- | ----------- |
+|    1    |      █     |       ░     |
+|    2    |      ⣿     |       ⣀     |
+|    3    |      ⬛    |       ⬜    |
 
 **Timeline**
 

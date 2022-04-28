@@ -46,8 +46,10 @@ locale = os.getenv('INPUT_LOCALE')
 commit_by_me = os.getenv('INPUT_COMMIT_BY_ME')
 ignored_repos_name = str(os.getenv('INPUT_IGNORED_REPOS') or '').replace(' ', '').split(',')
 show_updated_date = os.getenv('INPUT_SHOW_UPDATED_DATE')
+updated_date_format = os.getenv('INPUT_UPDATED_DATE_FORMAT')
 commit_message = os.getenv('INPUT_COMMIT_MESSAGE')
 show_total_code_time = os.getenv('INPUT_SHOW_TOTAL_CODE_TIME')
+symbol_version = os.getenv('INPUT_SYMBOL_VERSION').strip()
 show_waka_stats = 'y'
 # The GraphQL query to get commit data.
 userInfoQuery = """
@@ -173,8 +175,19 @@ def run_query(query):
 
 def make_graph(percent: float):
     '''Make progress graph from API graph'''
-    done_block = '█'
-    empty_block = '░'
+    if (symbol_version == '1'): # version 1
+        done_block = '█'
+        empty_block = '░'
+    elif (symbol_version == '2'): #version 2
+        done_block = '⣿'
+        empty_block = '⣀'
+    elif (symbol_version == '3'): # version 3
+        done_block = '⬛'
+        empty_block = '⬜'
+    else:
+        done_block = '█' #default is version 1
+        empty_block = '░'
+        
     pc_rnd = round(percent)
     return f"{done_block * int(pc_rnd / 4)}{empty_block * int(25 - int(pc_rnd / 4))}"
 
@@ -506,7 +519,7 @@ def get_stats(github):
 
     if show_updated_date.lower() in truthy:
         now = datetime.datetime.utcnow()
-        d1 = now.strftime("%d/%m/%Y %H:%M:%S")
+        d1 = now.strftime(updated_date_format)
         stats = stats + "\n Last Updated on " + d1 + " UTC"
 
     return stats
